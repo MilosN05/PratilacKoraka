@@ -26,7 +26,7 @@ taster.addEventListener("click", ()=> {
     if (prvoIzvrsenje == 1) {
     setInterval(() => {
         server.emit("obavljanjeGF")
-    }, 11000);
+    }, 31000);
     
     
 }
@@ -74,7 +74,7 @@ function izvrsenje() {
         
         navigator.geolocation.getCurrentPosition(primanjeLokacije2)
         
-    }, 10000);
+    }, 30000);
     setinterval(() => {
         merenje = false
         sumaPredjenihKm = 0
