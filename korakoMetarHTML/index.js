@@ -20,12 +20,15 @@ taster.addEventListener("click", ()=> {
     
     setTimeout(() => {
         server.emit("obavljanjeGF")
+        prvoIzvrsenje = 1
     }, 1000);
     
     if (prvoIzvrsenje == 1) {
     setInterval(() => {
         server.emit("obavljanjeGF")
-    }, 61000);
+    }, 11000);
+    
+    
 }
 })
 
@@ -79,7 +82,7 @@ function izvrsenje() {
             sumaPredjenihKm += predjenoKilometara[i]
            
         }
-        predjeniKoraci += (sumaPredjenihKm *1000)/170
+        predjeniKoraci += (sumaPredjenihKm *1000)*1.7
 
         if (document.querySelector("h1")) {
             body.removeChild(deteHTML)
