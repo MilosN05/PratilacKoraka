@@ -82,7 +82,7 @@ function izvrsenje() {
             sumaPredjenihKm += predjenoKilometara[i]
            
         }
-        predjeniKoraci += (sumaPredjenihKm *1000)*1.7
+        predjeniKoraci = (sumaPredjenihKm *1000)*1.7
 
         if (document.querySelector("h1")) {
             body.removeChild(deteHTML)
