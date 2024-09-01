@@ -6,6 +6,7 @@ let merenje = true
 let predjenoKilometara = []
 let lang1 = 0
 let lang2 = 0
+let prvoIzvrsenje = 0
 
 
 
@@ -15,10 +16,15 @@ taster.addEventListener("click", ()=> {
     
     
     
+    setTimeout(() => {
+        server.emit("obavljanjeGF")
+    }, 1000);
+    
+    if (prvoIzvrsenje == 1) {
     setInterval(() => {
         server.emit("obavljanjeGF")
     }, 61000);
-    
+}
 })
 
 
