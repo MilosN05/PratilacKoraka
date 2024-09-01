@@ -78,7 +78,7 @@ function izvrsenje() {
         }
         predjeniKoraci = (sumaPredjenihKm *1000)/170
         body.innerHTML += `<h1>Presli ste ukupno ${predjeniKoraci}</h1>`
-    }, 180000);
+    }, 70000);
 
 }
 
