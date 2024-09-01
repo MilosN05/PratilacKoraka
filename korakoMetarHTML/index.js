@@ -1,4 +1,4 @@
-let server = io("192.168.0.23:5000")
+let server = io("https://pratilackoraka.onrender.com")
 
 let taster = document.querySelector("button")
 let body = document.querySelector("body")
