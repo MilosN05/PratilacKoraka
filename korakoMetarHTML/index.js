@@ -7,6 +7,8 @@ let predjenoKilometara = []
 let lang1 = 0
 let lang2 = 0
 let prvoIzvrsenje = 0
+let predjeniKoraci = 0
+
 
 
 
@@ -69,17 +71,28 @@ function izvrsenje() {
         
         navigator.geolocation.getCurrentPosition(primanjeLokacije2)
         
-    }, 60000);
-    setTimeout(() => {
+    }, 10000);
+    setinterval(() => {
         merenje = false
         sumaPredjenihKm = 0
         for (let i =0; i<predjenoKilometara.length; i++) {
             sumaPredjenihKm += predjenoKilometara[i]
            
         }
-        predjeniKoraci = (sumaPredjenihKm *1000)/170
-        body.innerHTML += `<h1>Presli ste ukupno ${predjeniKoraci}</h1>`
-    }, 70000);
+        predjeniKoraci += (sumaPredjenihKm *1000)/170
+
+        if (document.querySelector("h1")) {
+            body.removeChild(deteHTML)
+            
+
+    }
+        const deteHTML = document.createElement("h1")
+        deteHTML.textContent = predjeniKoraci
+
+        body.appendChild(deteHTML)
+        
+        
+    }, 20000);
 
 }
 
