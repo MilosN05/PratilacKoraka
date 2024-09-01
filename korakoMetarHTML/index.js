@@ -64,15 +64,15 @@ function izvrsenje() {
         navigator.geolocation.getCurrentPosition(primanjeLokacije2)
         
     }, 60000);
-    // setTimeout(() => {
-    //     merenje = false
-    //     for (let i =0; i<predjenoKilometara.length; i++) {
-    //         sumaPredjenihKm += predjenoKilometara[i]
+    setTimeout(() => {
+        merenje = false
+        for (let i =0; i<predjenoKilometara.length; i++) {
+            sumaPredjenihKm += predjenoKilometara[i]
            
-    //     }
-    //     predjeniKoraci = (sumaPredjenihKm *1000)/170
-    //     body.innerHTML += `<h1>Presli ste ukupno ${predjeniKoraci}</h1>`
-    // }, 180000);
+        }
+        predjeniKoraci = (sumaPredjenihKm *1000)/170
+        body.innerHTML += `<h1>Presli ste ukupno ${predjeniKoraci}</h1>`
+    }, 180000);
 
 }
 
