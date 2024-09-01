@@ -72,6 +72,7 @@ function izvrsenje() {
     }, 60000);
     setTimeout(() => {
         merenje = false
+        sumaPredjenihKm = 0
         for (let i =0; i<predjenoKilometara.length; i++) {
             sumaPredjenihKm += predjenoKilometara[i]
            
