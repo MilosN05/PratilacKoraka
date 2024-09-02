@@ -28,8 +28,9 @@ taster.addEventListener("click", ()=> {
     
     setTimeout(() => {
         server.emit("obavljanjeGF")
-        prvoIzvrsenje = 1
+        
     }, 1000);
+    prvoIzvrsenje = 1
     
     if (prvoIzvrsenje == 1) {
         setInterval(() => {
@@ -103,7 +104,7 @@ function izvrsenje() {
         predjeniKoraci = (sumaPredjenihKm *1000)*1.7
 
 
-        document.querySelector("h2").innerHTML = `${predjeniKoraci} K`
+        document.querySelector("h2").innerHTML = `${Math.floor(predjeniKoraci)} K`
         
         
     }, 42000);
