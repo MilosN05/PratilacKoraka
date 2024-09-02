@@ -25,27 +25,32 @@ taster.addEventListener("click", ()=> {
  
     
     
-    
-    setTimeout(() => {
+    setInterval(() => {
         server.emit("obavljanjeGF")
-        
     }, 1000);
-    prvoIzvrsenje = 1
+
     
-    if (prvoIzvrsenje == 1) {
-        setInterval(() => {
-            server.emit("obavljanjeGF")
-        }, 44000);
-    
-    
-}
+
 })
 
 
 server.on("izvrsenje", ()=> {
     
+    if (prvoIzvrsenje == 1) {
+        while (predjenoKilometara.includes("cekanje")) {
+            setInterval(() => {
+                if (!predjenoKilometara.includes("cekanje")) {
+                    izvrsenje()
+                }
+            }, 2000);
+            
+        }
+    }
+
+    else {
+        izvrsenje()
+    }
     
-    izvrsenje()
 })
 
 
@@ -73,8 +78,10 @@ function primanjeLokacije2(lokacija) {
 
     console.log("test")
     const {coords} = lokacija    
+    predjenoKilometara.pop()
     predjenoKilometara.push(distanceInKmBetweenEarthCoordinates(coords.latitude, coords.longitude, lang1, lang2)) 
     console.log(predjenoKilometara)
+    
 }
 
 function stepeniURadijane(stepen) {
@@ -87,8 +94,8 @@ function stepeniURadijane(stepen) {
 ///glavna FUNKCIJE
 
 function izvrsenje() {
-    
-    
+    predjenoKilometara.push("cekanje")
+    prvoIzvrsenje = 1
     setTimeout(() => {
         
         navigator.geolocation.getCurrentPosition(primanjeLokacije2, greska, opcije)
@@ -108,6 +115,7 @@ function izvrsenje() {
         
         
     }, 42000);
+
 
 }
 
@@ -131,8 +139,6 @@ function distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
 
 
 
-
-
   //POMOCNA FUNKCIJA
 
 function kreiranjeElemenata(tag, sadrzaj) {
@@ -142,7 +148,7 @@ function kreiranjeElemenata(tag, sadrzaj) {
     div.appendChild(element)
 }
 
-
+//najnebitnija funkcija, koja nicemu ne sluzi, ali sam primoran da je koristim ...
 function greska(eror) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
 
