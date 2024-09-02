@@ -21,7 +21,7 @@ taster.addEventListener("click", ()=> {
     kreiranjeElemenata("h2", "0 K")
 
 
-    navigator.geolocation.getCurrentPosition(primanjeLokacije1, opcije)
+    navigator.geolocation.getCurrentPosition(primanjeLokacije1, greska, opcije)
  
     
     
@@ -90,7 +90,7 @@ function izvrsenje() {
     
     setTimeout(() => {
         
-        navigator.geolocation.getCurrentPosition(primanjeLokacije2, null, opcije)
+        navigator.geolocation.getCurrentPosition(primanjeLokacije2, greska, opcije)
         
     }, 40000);
     setInterval(() => {
@@ -139,6 +139,12 @@ function kreiranjeElemenata(tag, sadrzaj) {
     let element = document.createElement(tag)
     element.textContent = sadrzaj
     div.appendChild(element)
+}
+
+
+function greska(eror) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+
 }
 
 //KORISTI POSTMAN
