@@ -90,7 +90,7 @@ function izvrsenje() {
     
     setTimeout(() => {
         
-        navigator.geolocation.getCurrentPosition(primanjeLokacije2, opcije)
+        navigator.geolocation.getCurrentPosition(primanjeLokacije2, null, opcije)
         
     }, 40000);
     setInterval(() => {
