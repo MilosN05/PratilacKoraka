@@ -2,6 +2,7 @@ let server = io("https://pratilackoraka.onrender.com")
 
 let taster = document.querySelector("button")
 let body = document.querySelector("body")
+let div = document.querySelector("div")
 let merenje = true
 let predjenoKilometara = []
 let lang1 = 0
@@ -13,8 +14,12 @@ let predjeniKoraci = 0
 
 
 taster.addEventListener("click", ()=> {
+    taster.hidden = "true"
+    kreiranjeElemenata("h2", "0 K")
+
+
     navigator.geolocation.getCurrentPosition(primanjeLokacije1)
-    console.log(lang1, lang2)
+ 
     
     
     
@@ -26,7 +31,7 @@ taster.addEventListener("click", ()=> {
     if (prvoIzvrsenje == 1) {
         setInterval(() => {
             server.emit("obavljanjeGF")
-        }, 31000);
+        }, 44000);
     
     
 }
@@ -35,15 +40,14 @@ taster.addEventListener("click", ()=> {
 
 server.on("izvrsenje", ()=> {
     
+    
     izvrsenje()
 })
 
 
 
-// izvrsenje()
 
-
-
+///DOBIJANJE LOKACIJE
 
 function primanjeLokacije1(lokacija) {
     let {coords} = lokacija
@@ -52,6 +56,13 @@ function primanjeLokacije1(lokacija) {
     lang2 = coords.longitude
 
     console.log(lang1, lang2)
+    if (document.querySelector("h3")) {
+        document.querySelector("h3").innerHTML = `${lang1} ${lang2}`
+    }
+    else {
+        kreiranjeElemenata("h3", `${lang1} ${lang2}`)
+    }
+    
     } /////U PRIMANJE LOKACIJA NASTAJE PROBLEM
 
 function primanjeLokacije2(lokacija) {
@@ -67,6 +78,10 @@ function stepeniURadijane(stepen) {
 }
 
 
+
+
+///glavna FUNKCIJE
+
 function izvrsenje() {
     
     
@@ -74,9 +89,9 @@ function izvrsenje() {
         
         navigator.geolocation.getCurrentPosition(primanjeLokacije2)
         
-    }, 30000);
+    }, 40000);
     setInterval(() => {
-        merenje = false
+        
         sumaPredjenihKm = 0
         for (let i =0; i<predjenoKilometara.length; i++) {
             sumaPredjenihKm += predjenoKilometara[i]
@@ -84,18 +99,11 @@ function izvrsenje() {
         }
         predjeniKoraci = (sumaPredjenihKm *1000)*1.7
 
-        if (document.querySelector("h1")) {
-            body.removeChild(deteHTML)
-            
 
-    }
-        const deteHTML = document.createElement("h1")
-        deteHTML.textContent = predjeniKoraci
-
-        body.appendChild(deteHTML)
+        document.querySelector("h2").innerHTML = `${predjeniKoraci} K`
         
         
-    }, 20000);
+    }, 42000);
 
 }
 
@@ -114,6 +122,21 @@ function distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
     return earthRadiusKm * c;
   }
+
+
+
+
+
+
+
+  //POMOCNA FUNKCIJA
+
+function kreiranjeElemenata(tag, sadrzaj) {
+    
+    let element = document.createElement(tag)
+    element.textContent = sadrzaj
+    div.appendChild(element)
+}
 
 //KORISTI POSTMAN
 //TRAZI INFORMACIJU OD API ZA KILOMETRAZU

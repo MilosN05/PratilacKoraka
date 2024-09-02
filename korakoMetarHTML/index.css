@@ -1,0 +1,61 @@
+body {
+    text-align: center;
+    background-color: rgb(76, 230, 250);
+    background-size: cover;
+
+    overflow: hidden;
+    user-select: none;
+   
+
+    font-size: 25px;
+    font-family: 'Segoe UI';
+    color: white;
+}
+
+button {
+    position: absolute;
+    padding:1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-top: 12%;
+    margin-right: 1.5%;
+    font-family: 'Segoe UI';
+    border: none;
+    border-radius: 35px;
+    
+    color:white;
+    background-color: rgb(144, 168, 144);
+}
+
+
+button:active {
+    background-color: white;
+    color: rgb(144, 168, 144);
+    transition: all 400ms ease-out;
+}
+
+
+
+#bla {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    
+    }
+
+h1 {
+    position: absolute;
+    margin-top: 5%;
+    margin-right: 1.5%;
+}
+
+h2 {
+    position: absolute;
+    margin-top: 12%;
+    margin-right: 1.5%;
+}
+
+h3 {
+    position: absolute;
+    margin-top: 30%;
+}
