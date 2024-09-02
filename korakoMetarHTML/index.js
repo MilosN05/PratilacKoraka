@@ -3,7 +3,10 @@ let server = io("https://pratilackoraka.onrender.com")
 let taster = document.querySelector("button")
 let body = document.querySelector("body")
 let div = document.querySelector("div")
-let merenje = true
+
+
+let opcije = {enableHighAccuracy: true, timeout: 5000, maximumAge:0 
+}
 let predjenoKilometara = []
 let lang1 = 0
 let lang2 = 0
@@ -18,7 +21,7 @@ taster.addEventListener("click", ()=> {
     kreiranjeElemenata("h2", "0 K")
 
 
-    navigator.geolocation.getCurrentPosition(primanjeLokacije1)
+    navigator.geolocation.getCurrentPosition(primanjeLokacije1, opcije)
  
     
     
@@ -87,7 +90,7 @@ function izvrsenje() {
     
     setTimeout(() => {
         
-        navigator.geolocation.getCurrentPosition(primanjeLokacije2)
+        navigator.geolocation.getCurrentPosition(primanjeLokacije2, opcije)
         
     }, 40000);
     setInterval(() => {
