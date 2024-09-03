@@ -18,7 +18,6 @@ let lang1 = 0
 let lang2 = 0
 let prvoIzvrsenje = 0
 let predjeniKoraci = 0
-server.emit("pracenjeKM", predjenoKilometara)
 
 
 
@@ -90,7 +89,7 @@ function primanjeLokacije2(lokacija) {
     }
     predjenoKilometara.push(distanceInKmBetweenEarthCoordinates(coords.latitude, coords.longitude, lang1, lang2)) 
     console.log(predjenoKilometara)
-    
+    server.emit("pracenjeKM", predjenoKilometara[0])
     
 }
 
