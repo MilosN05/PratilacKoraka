@@ -22,6 +22,10 @@ kSKanal.on("connection", (korisnik)=> {
         console.log("zapocinjanje pracenja")
         korisnik.emit("izvrsenje")
     })
+
+    korisnik.on("pracenjeKM", (podaci)=> {
+        console.log(podaci)
+    })
 })
 
 

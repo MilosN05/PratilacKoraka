@@ -89,6 +89,7 @@ function primanjeLokacije2(lokacija) {
     }
     predjenoKilometara.push(distanceInKmBetweenEarthCoordinates(coords.latitude, coords.longitude, lang1, lang2)) 
     console.log(predjenoKilometara)
+    server.emit("pracenjeKM", predjenoKilometara)
     
 }
 
