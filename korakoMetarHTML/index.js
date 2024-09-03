@@ -110,7 +110,7 @@ function izvrsenje() {
         navigator.geolocation.getCurrentPosition(primanjeLokacije2, greska, opcije)
         
     }, 4000);
-    setInterval(() => {           
+    setTimeout(() => {           
         
         predjeniKoraci += (predjenoKilometara[0] *1000)*1.7
 
