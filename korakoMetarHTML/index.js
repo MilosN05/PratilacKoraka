@@ -9,7 +9,7 @@ let sat = document.getElementById("vreme")
 let vremenskaKlasa = new Date()
 let opcije = {enableHighAccuracy: true, timeout: 5000, maximumAge:0 
 }
-sat.innerHTML = `${vremenskaKlasa.getUTCHours() + 2}:${vremenskaKlasa.getUTCMinutes()}`
+sat.innerHTML = `${new Date().getUTCHours() + 2}:${new Date().getUTCMinutes()}`
 
 
 
@@ -28,7 +28,7 @@ taster.addEventListener("click", ()=> {
 
 
     setInterval(() => {
-        sat.innerHTML = `${vremenskaKlasa.getUTCHours() + 2}:${vremenskaKlasa.getUTCMinutes()}`
+        sat.innerHTML = `${new Date().getUTCHours() + 2}:${new Date().getUTCMinutes()}` ///MORA UVEK NOVI OBJEKAT, ZATO STO JE TAKO KONSTRUISANO DA SE U OBJEKTU ZABELEZI PRVA DOBIJENA VREDNOST A ZATIM SE DA DOBIJENA VREDNOST UVEK PONAVLJA
         navigator.geolocation.getCurrentPosition(primanjeLokacije1, greska, opcije)
         server.emit("obavljanjeGF")
     }, 5000);
@@ -78,7 +78,7 @@ function primanjeLokacije1(lokacija) {
         kreiranjeElemenata("h3", `${lang1} ${lang2}`)
     }
     
-    } /////U PRIMANJE LOKACIJA NASTAJE PROBLEM
+    } /////U PRIMANJU LOKACIJA NASTAJE PROBLEM
 
 function primanjeLokacije2(lokacija) {
 
@@ -100,7 +100,7 @@ function stepeniURadijane(stepen) {
 
 
 
-///glavna FUNKCIJE
+///glavne FUNKCIJE
 
 function izvrsenje() {
     
