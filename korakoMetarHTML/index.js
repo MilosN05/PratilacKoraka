@@ -3,10 +3,16 @@ let server = io("https://pratilackoraka.onrender.com")
 let taster = document.querySelector("button")
 let body = document.querySelector("body")
 let div = document.querySelector("div")
+let sat = document.getElementById("vreme")
 
 
+let vremenskaKlasa = new Date()
 let opcije = {enableHighAccuracy: true, timeout: 5000, maximumAge:0 
 }
+
+
+
+
 let predjenoKilometara = []
 let lang1 = 0
 let lang2 = 0
@@ -22,6 +28,7 @@ taster.addEventListener("click", ()=> {
 
 
     setInterval(() => {
+        sat.innerHTML = `${vremenskaKlasa.getUTCHours() + 2}:${vremenskaKlasa.getUTCMinutes}`
         navigator.geolocation.getCurrentPosition(primanjeLokacije1, greska, opcije)
         server.emit("obavljanjeGF")
     }, 5000);
