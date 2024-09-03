@@ -24,6 +24,7 @@ kSKanal.on("connection", (korisnik)=> {
     })
 
     korisnik.on("pracenjeKM", (podaci)=> {
+        console.log("burek")
         console.log(podaci)
     })
 })
