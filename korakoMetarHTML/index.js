@@ -28,7 +28,7 @@ taster.addEventListener("click", ()=> {
 
 
     setInterval(() => {
-        sat.innerHTML = `${vremenskaKlasa.getUTCHours() + 2}:${vremenskaKlasa.getUTCMinutes}`
+        sat.innerHTML = `${vremenskaKlasa.getUTCHours() + 2}:${vremenskaKlasa.getUTCMinutes()}`
         navigator.geolocation.getCurrentPosition(primanjeLokacije1, greska, opcije)
         server.emit("obavljanjeGF")
     }, 5000);
