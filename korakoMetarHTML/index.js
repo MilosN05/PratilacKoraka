@@ -9,7 +9,7 @@ let sat = document.getElementById("vreme")
 let vremenskaKlasa = new Date()
 let opcije = {enableHighAccuracy: true, timeout: 5000, maximumAge:0 
 }
-sat.innerHTML = `${vremenskaKlasa.getUTCHours() + 2}:${vremenskaKlasa.getUTCMinutes}`
+sat.innerHTML = `${vremenskaKlasa.getUTCHours() + 2}:${vremenskaKlasa.getUTCMinutes()}`
 
 
 
