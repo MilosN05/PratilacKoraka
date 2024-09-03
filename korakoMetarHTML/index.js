@@ -24,7 +24,7 @@ taster.addEventListener("click", ()=> {
     setInterval(() => {
         navigator.geolocation.getCurrentPosition(primanjeLokacije1, greska, opcije)
         server.emit("obavljanjeGF")
-    }, 6000);
+    }, 5000);
 
     
 
@@ -102,15 +102,9 @@ function izvrsenje() {
         navigator.geolocation.getCurrentPosition(primanjeLokacije2, greska, opcije)
         
     }, 4000);
-    setInterval(() => {
+    setInterval(() => {           
         
-        sumaPredjenihKm = 0
-        for (let i =0; i<predjenoKilometara.length; i++) {
-            sumaPredjenihKm += predjenoKilometara[i]
-           
-        }
-        predjeniKoraci += (sumaPredjenihKm *1000)*1.7
-
+        predjeniKoraci += (predjenoKilometara[0] *1000)*1.7
 
         document.querySelector("h2").innerHTML = `${Math.floor(predjeniKoraci)} K`
         
