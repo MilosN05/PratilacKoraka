@@ -77,7 +77,9 @@ function primanjeLokacije2(lokacija) {
 
     console.log("test")
     const {coords} = lokacija    
-    predjenoKilometara.pop()
+    if (predjenoKilometara.length != 0) {
+        predjenoKilometara.pop()
+    }
     predjenoKilometara.push(distanceInKmBetweenEarthCoordinates(coords.latitude, coords.longitude, lang1, lang2)) 
     console.log(predjenoKilometara)
     
@@ -93,7 +95,7 @@ function stepeniURadijane(stepen) {
 ///glavna FUNKCIJE
 
 function izvrsenje() {
-    predjenoKilometara.push("cekanje")
+    
     prvoIzvrsenje = 1
     setTimeout(() => {
         
@@ -107,13 +109,13 @@ function izvrsenje() {
             sumaPredjenihKm += predjenoKilometara[i]
            
         }
-        predjeniKoraci = (sumaPredjenihKm *1000)*1.7
+        predjeniKoraci += (sumaPredjenihKm *1000)*1.7
 
 
         document.querySelector("h2").innerHTML = `${Math.floor(predjeniKoraci)} K`
         
         
-    }, 5000);
+    }, 4500);
 
 
 }
