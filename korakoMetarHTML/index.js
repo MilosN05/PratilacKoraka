@@ -21,11 +21,8 @@ taster.addEventListener("click", ()=> {
     kreiranjeElemenata("h2", "0 K")
 
 
-    navigator.geolocation.getCurrentPosition(primanjeLokacije1, greska, opcije)
- 
-    
-    
     setInterval(() => {
+        navigator.geolocation.getCurrentPosition(primanjeLokacije1, greska, opcije)
         server.emit("obavljanjeGF")
     }, 1000);
 
@@ -36,20 +33,22 @@ taster.addEventListener("click", ()=> {
 
 server.on("izvrsenje", ()=> {
     
-    if (prvoIzvrsenje == 1) {
-        while (predjenoKilometara.includes("cekanje")) {
-            setInterval(() => {
-                if (!predjenoKilometara.includes("cekanje")) {
-                    izvrsenje()
-                }
-            }, 2000);
+    // if (prvoIzvrsenje == 1) {
+    //     while (predjenoKilometara.includes("cekanje")) {
+    //         setInterval(() => {
+    //             if (!predjenoKilometara.includes("cekanje")) {
+    //                 izvrsenje()
+    //             }
+    //         }, 2000);
             
-        }
-    }
+    //     }
+    // }
 
-    else {
-        izvrsenje()
-    }
+    // else {
+    //     izvrsenje()
+    // }
+
+    izvrsenje()
     
 })
 
