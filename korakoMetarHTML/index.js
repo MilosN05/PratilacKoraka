@@ -31,7 +31,7 @@ taster.addEventListener("click", ()=> {
         sat.innerHTML = `${new Date().getUTCHours() + 2}:${new Date().getUTCMinutes()}` ///MORA UVEK NOVI OBJEKAT, ZATO STO JE TAKO KONSTRUISANO DA SE U OBJEKTU ZABELEZI PRVA DOBIJENA VREDNOST A ZATIM SE DA DOBIJENA VREDNOST UVEK PONAVLJA
         navigator.geolocation.getCurrentPosition(primanjeLokacije1, greska, opcije)
         server.emit("obavljanjeGF")
-    }, 11000);
+    }, 5000);
 
     
 
@@ -109,13 +109,13 @@ function izvrsenje() {
         
         navigator.geolocation.getCurrentPosition(primanjeLokacije2, greska, opcije)
 
-    }, 9000);
+    }, 4500);
 
     setTimeout(() => {
         predjeniKoraci += (predjenoKilometara[0] *1000)*1.7
 
         document.querySelector("h2").innerHTML = `${Math.floor(predjeniKoraci)} K`
-    }, 9500);
+    }, 4700);
 }
 
 
