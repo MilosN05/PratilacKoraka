@@ -6,10 +6,9 @@ let div = document.querySelector("div")
 let sat = document.getElementById("vreme")
 
 
-let vremenskaKlasa = new Date()
 let opcije = {enableHighAccuracy: true, timeout: 5000, maximumAge:0 
 }
-sat.innerHTML = `${new Date().getUTCHours() + 2}:${new Date().getUTCMinutes()}`
+pracenjeVremena()
 
 
 
@@ -28,7 +27,7 @@ taster.addEventListener("click", ()=> {
 
 
     setInterval(() => {
-        sat.innerHTML = `${new Date().getUTCHours() + 2}:${new Date().getUTCMinutes()}` ///MORA UVEK NOVI OBJEKAT, ZATO STO JE TAKO KONSTRUISANO DA SE U OBJEKTU ZABELEZI PRVA DOBIJENA VREDNOST A ZATIM SE DA DOBIJENA VREDNOST UVEK PONAVLJA
+        pracenjeVremena()
         navigator.geolocation.getCurrentPosition(primanjeLokacije1, greska, opcije)
         server.emit("obavljanjeGF")
         console.log("ovo ce biti prva")
@@ -147,6 +146,24 @@ function kreiranjeElemenata(tag, sadrzaj) {
     let element = document.createElement(tag)
     element.textContent = sadrzaj
     div.appendChild(element)
+}
+
+
+function pracenjeVremena() {
+    let element = new Date().getHours().toString()
+    let element2 = new Date().getUTCMinutes().toString()
+
+    if (eval(element) < 10) {
+        element = `0${element}`
+    }
+
+    if (eval(element2)<10) {
+        element2 = `0${element2}`
+    }
+
+    sat.innerHTML = element + ":" + element2
+
+
 }
 
 //najnebitnija funkcija, koja nicemu ne sluzi, ali sam primoran da je koristim ...
