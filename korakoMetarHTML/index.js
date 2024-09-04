@@ -31,6 +31,7 @@ taster.addEventListener("click", ()=> {
         sat.innerHTML = `${new Date().getUTCHours() + 2}:${new Date().getUTCMinutes()}` ///MORA UVEK NOVI OBJEKAT, ZATO STO JE TAKO KONSTRUISANO DA SE U OBJEKTU ZABELEZI PRVA DOBIJENA VREDNOST A ZATIM SE DA DOBIJENA VREDNOST UVEK PONAVLJA
         navigator.geolocation.getCurrentPosition(primanjeLokacije1, greska, opcije)
         server.emit("obavljanjeGF")
+        console.log("ovo ce biti prva")
     }, 5000);
 
     
@@ -108,13 +109,14 @@ function izvrsenje() {
     setTimeout(() => {
         
         navigator.geolocation.getCurrentPosition(primanjeLokacije2, greska, opcije)
-
+        console.log("ovo ce biti druga")
     }, 4500);
 
     setTimeout(() => {
         predjeniKoraci += (predjenoKilometara[0] *1000)*1.7
 
         document.querySelector("h2").innerHTML = `${Math.floor(predjeniKoraci)} K`
+        console.log("ovo ce biti treca")
     }, 4700);
 }
 
